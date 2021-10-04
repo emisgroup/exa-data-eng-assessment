@@ -11,7 +11,7 @@ You will have approximately 1 week to complete this task and should focus on an 
 ## The Solution
 Your pipeline can use any of the following technologies along with **any frameworks, libraries you feel appropriate**:
 
-- **Programming Languages** - Java / Python / Scala 
+- **Programming Languages** - Java / Python / Scala / Go / C#
 - **Data Storage Layer** - MongoDB / MySql / Postgres / SQLServer Express / Filesystem (CSV/Parquet/Orc)
 
 You should containerise your pipeline using docker / docker-compose.
