@@ -8,9 +8,5 @@ def testGithub():
     message = print ('This is a test')
     return message
 
-message = testGithub()
-    
-
-
-
+message = testGithub() 
 
