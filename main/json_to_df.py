@@ -11,20 +11,22 @@ The script does the following:
 """
 import json
 import pandas as pd
+import os
+import glob
 
-def getJsonToDF(json_path):
-    """First look at json files"""
-    with open(json_path) as f:
-        df = json.load(f)
-        
-    # load data using Python JSON module
-    with open('json_path','r') as f:
-        data = json.loads(f.read())
-    # Flatten data
-    df_nested_list = pd.json_normalize(data)
-    return df, data, df_nested_list
-
-
+"""Import json files from a folder"""
+def get_files(files_path):
+    all_files = []
+    for root, dirs, diles in os.walk(files_path):
+        files = glob.glob(os.path.join(root, '*.json'))
+        for f in files:
+            all_files.append(os.path.abspath(f))
+            
+    return all_files
 
 if __name__ == '__main__':
-    json_path = 'C:\Sandbox\Emis_Task\data\Aaron697_Dickens475_8c95253e-8ee8-9ae8-6d40-021d702dc78e.json'
+    """Import json files from a folder, then convert json to dataframe"""
+    #Path to all json files
+    files_path = 'C:\Sandbox\Emis_Task\data'
+    #
+    json_data = get_files(files_path)
