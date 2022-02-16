@@ -17,13 +17,18 @@ import json
 import pandas as pd
 import os
 import glob
-import sys, getopt
-import pathlib
-from pathlib import Path
-from fhir.resources.patient import Patient
-from fhirclient.models.bundle import BundleEntrySearch
-from fhirclient.models.humanname import HumanName
+import psycopg2
+#From psycopg2.extras import extra, extensions
+import psycopg2.extras
+import psycopg2.extensions
+#Import config file
+import yaml
 
+def getConfig():
+    with open('../config.yml') as f:
+        config = yaml.load(f, Loader=yaml.FullLoader)
+        return config
+    
 def get_files(files_path):
     """Import json files from a folder"""
     #Create empty list
@@ -37,7 +42,7 @@ def get_files(files_path):
     return all_files
 
 def get_json(filename):
-    """Lead json file"""
+    """Lead json params"""
     with open(filename) as f:
         return json.load(f)
 
@@ -54,21 +59,51 @@ def jsonToResources(all_files, output_dir):
             #Get resource type from keys
             if resource_type not in resources.keys():
                 resources[resource_type] = []
-            #Save resource files to dir
-            with open(f'{output_dir}/{str(resource_type).lower()}_{len(resources[resource_type])}.json', 'w') as enc:
-                enc.write(json.dumps(resource))
             #Append resource to list of resources dict
             resources[resource_type].append(resource)
         for key in resources.keys():
             #Print total resources count for this patient
             print(f'{key}: {len(resources[key])}')
+            
+def create_staging_table(cur):
+    # Create a Table to store JSON data:
+    cur.execute("""
+        DROP TABLE IF EXISTS nested_tweets;
+        CREATE UNLOGGED TABLE nested_tweets (
+        ID serial NOT NULL PRIMARY KEY,
+     fhir jsonb );""")
+    return True
+
+def fcn(all_files,table,cur):
+    if len(df) > 0:
+        df_columns = list(df)
+        # create (col1,col2,...)
+        columns = ",".join(df_columns)
+        # create VALUES('%s', '%s",...) one '%s' per column
+        values = "VALUES({})".format(",".join(["%s" for _ in df_columns])) 
+        #create INSERT INTO table (columns) VALUES('%s',...)
+        insert_stmt = "INSERT INTO {} ({}) {}".format(table,columns,values)
+        cur.execute("truncate " + table + ";")  #avoiding uploading duplicate data!
+        cur = conn.cursor()
+        psycopg2.extras.execute_batch(cur, insert_stmt, df.values)
+    conn.commit()
+    return True
 
 if __name__ == '__main__':
     """Import json files from a folder, then convert json to dataframe"""
+    #Get the config params
+    params = getConfig()
+    #Connection to postgresql
+    conn = psycopg2.connect(params['pstsql']) 
+    #Open a cursor to perform database operations
+    cur = conn.cursor() 
+    conn.autocommit = True  
+    create_staging_table(cur)
     #Path to all json files folder
-    files_path = '../data'
-    output_dir = r'C:\Sandbox\Emis_Task\patient_resources'
+    files_path = params['files_path']    
+    output_dir = params['output_dir']
     #The links to json files
     all_files = get_files(files_path)
     #Read json files to dataframes
     df = jsonToResources(all_files, output_dir)
+    fcn(df,'nested_fhir',cur)

@@ -1,0 +1,4 @@
+#config file 
+files_path: '../data'
+output_dir: r'C:\Sandbox\Emis_Task\patient_resources'
+pstsql: dbname='fhir' user='postgres' host='localhost' password='admin'
