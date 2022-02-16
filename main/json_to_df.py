@@ -46,8 +46,8 @@ def get_json(filename):
     with open(filename) as f:
         return json.load(f)
 
-#TODO add config file 
-#TODO create tables for each resource linked to the patient
+#TODO upload nested fhir resources to postgresql
+#TODO add docker file
 def jsonToResources(all_files, output_dir):
     """loop through each json file and create seprate resources per patient"""
     for input_file in all_files:
@@ -77,7 +77,6 @@ def create_staging_table(cur):
 def fcn(all_files,table,cur):
     if len(df) > 0:
         df_columns = list(df)
-        # create (col1,col2,...)
         columns = ",".join(df_columns)
         # create VALUES('%s', '%s",...) one '%s' per column
         values = "VALUES({})".format(",".join(["%s" for _ in df_columns])) 
