@@ -74,7 +74,7 @@ def create_staging_table(cur):
      fhir jsonb );""")
     return True
 
-def fcn(all_files,table,cur):
+def uploadToPostSql(all_files,table,cur):
     if len(df) > 0:
         df_columns = list(df)
         columns = ",".join(df_columns)
@@ -105,4 +105,4 @@ if __name__ == '__main__':
     all_files = get_files(files_path)
     #Read json files to dataframes
     df = jsonToResources(all_files, output_dir)
-    fcn(df,'nested_fhir',cur)
+    uploadToPostSql(df,'nested_fhir',cur)
