@@ -1,12 +1,16 @@
 # Data Engineer - Technical Assesment
-Our tech teams are curious, driven, intelligent, pragmatic, collaborative and open-minded and you should be too.
+Our tech teams are curious, driven, intelligent, pragmatic, collaborative and open-minded and you should be too. 
+
 ## Testing Goals
-We are testing your ability to design and prototype a scalable data-pipeline (with code) underpinned with good data/software engineering principles. 
+We are testing your ability to design and prototype a scalable data-pipeline (with code) underpinned with good data/software engineering principles from a blank canvas. You will need to use your intellect, creativity, judgement and be comfortable making decisions to produce a solution. 
+
+You will have approximately 1 week to complete this task but can as much or as little time as you deem necessary to *demonstrate your understanding of the problem, your range of skills and approach to problem solving*.
+
+Some successful candidates have spent as little as 3 hours whilst others have used the full week because they've enjoyed exploring different ideas, technologies and approaches. 
 
 ## The Task
-An external system / supplier is sending patient data to our platform using the FHIR standard. Our analytics teams find this format difficult to work with when creating dashboards and visualizations. You are required to tranform these FHIR messages into a more workable format preferably in a tabular format.
+An external system / supplier is sending patient data to our platform using the FHIR standard. Our analytics teams find this format difficult to work with when creating dashboards and visualizations. You are required to tranform these FHIR messages into a more workable format preferably in a tabular format. Include any documentation / commentary you deem necessary.
 
-You will have approximately 1 week to complete this task and should focus on an MVP but you are free to take this as far as you wish.
 
 ## The Solution
 Your pipeline can use any of the following technologies along with **any frameworks, libraries you feel appropriate**:
