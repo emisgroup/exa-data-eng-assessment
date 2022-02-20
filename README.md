@@ -4,7 +4,7 @@ Our tech teams are curious, driven, intelligent, pragmatic, collaborative and op
 ## Testing Goals
 We are testing your ability to design and prototype a scalable data-pipeline (with code) underpinned with good data/software engineering principles from a blank canvas. You will need to use your intellect, creativity, judgement and be comfortable making decisions to produce a solution. 
 
-You will have approximately 1 week to complete this task but can as much or as little time as you deem necessary to *demonstrate your understanding of the problem, your range of skills and approach to problem solving*.
+You will have approximately 1 week to complete this task but can as much or as little time as you deem necessary to **demonstrate your understanding of the problem, your range of skills and approach to problem solving**.
 
 Some successful candidates have spent as little as 3 hours whilst others have used the full week because they've enjoyed exploring different ideas, technologies and approaches. 
 
