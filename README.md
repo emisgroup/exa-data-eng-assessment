@@ -13,12 +13,21 @@ An external system / supplier is sending patient data to our platform using the 
 
 
 ## The Solution
-Your pipeline can use any of the following technologies along with **any frameworks, libraries you feel appropriate**:
+If you are applying for a position that uses one specific programming language, please write your solution in that language, otherwise your pipeline can use any of the following technologies along with **any frameworks, libraries you feel appropriate**:
 
 - **Programming Languages** - Java / Python / Scala / Go / C#
 - **Data Storage Layer** - MongoDB / MySql / Postgres / SQLServer Express / Filesystem (CSV/Parquet/Orc)
 
-You should containerise your pipeline using docker / docker-compose.
+Containerising your pipeline using docker / docker-compose is strongly encouraged, but not required.
+
+## Evaluation
+We take into account 5 areas when evaluating a solution. Each criteria is evaluated from 0 (non-existent) to 5 (excellent) and your final score would be a simple average across all 5 areas. These are:
+
+- **Functionality**: Is the solution correct? Does it run in a decent amount of time? How well thought and architected is the solution?
+- **Good Practices**: Does the code follow standard practices for the language and framework used? Take into account reusability, names, function length, structure, how crendentials are handled, etc.
+- **Testing**: Unit and integration tests.
+- **Execution environment**: Container, Virtual Environment, etc.
+- **Documentation**: How to install and run the solution? How to see and use the results? What is the architecture? Any next steps?
 
 ## Context
 [FHIR](/https://www.hl7.org/fhir/overview.html) is a popular standard within healthcare used by healthcare systems to exchange data and represent details of paitents in a standardised way. Some sample FHIR data has been generated in the data directory using a tool called [synthea](https://www.hl7.org/fhir/overview.html). 
