@@ -13,7 +13,7 @@ An external system / supplier is sending patient data to our platform using the 
 
 
 ## The Solution
-If you are applying for a position that uses one specific programming language, please write your solution in that language, otherwise your pipeline can use any of the following technologies along with **any frameworks, libraries you feel appropriate**:
+If you are applying for a position that uses one specific programming language, please write your solution in that language, otherwise your solution can use any of the following technologies along with **any frameworks, libraries you feel appropriate**:
 
 - **Programming Languages** - Java / Python / Scala / Go / C#
 - **Data Storage Layer** - MongoDB / MySql / Postgres / SQLServer Express / Filesystem (CSV/Parquet/Orc)
@@ -26,7 +26,7 @@ We take into account 5 areas when evaluating a solution. Each criteria is evalua
 - **Functionality**: Is the solution correct? Does it run in a decent amount of time? How well thought and architected is the solution?
 - **Good Practices**: Does the code follow standard practices for the language and framework used? Take into account reusability, names, function length, structure, how crendentials are handled, etc.
 - **Testing**: Unit and integration tests.
-- **Execution environment**: Container, Virtual Environment, etc.
+- **Execution environment**: Container, Virtual Environment, Dependency Management, Isolation, Ease of transition into a production environment etc.
 - **Documentation**: How to install and run the solution? How to see and use the results? What is the architecture? Any next steps?
 
 ## Context
