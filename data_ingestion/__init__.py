@@ -45,6 +45,7 @@ for file in json_files:
         if each_entry['resource']['resourceType'] == 'ExplanationOfBenefit':
             eob_data.append(ingest_eob_data(each_entry['resource']))
 
+# Write Dataframes into any external storage systems.Here I'm writing into CSV files 
 pd.DataFrame(patient_data, columns=['id', 'passport_no', 'driving_license', 'social_security_no', 'medical_record_no', 'name', 'telecom', 'gender', 'birth_date', 'deceased_date_time', 'address', 'marital_status', 'communication']).to_csv('output/patient_data.csv', index=False, sep=';')
 pd.DataFrame(encounter_data, columns=['id', 'status', 'class_code', 'type_code', 'type_text', 'subject', 'start_date', 'end_date', 'location', 'service_provider']).to_csv('output/encounter_data.csv', index=False, sep=';')
 pd.DataFrame(condition_data, columns=['id', 'clinical_status', 'verification_status', 'category_code', 'category', 'subject', 'encounter', 'onset_recorded', 'recorded_date', 'code', 'text']).to_csv('output/condition_data.csv', index=False, sep=';')
