@@ -19,7 +19,7 @@ Build the Docker image for FHIR ingestion:
 
 Run the FHIR ingestion container:
 
-    docker run -t fhir_ingestion
+    docker run -it fhir_ingestion
 
 Provide the PostgreSQL container's IP address when prompted:
 
