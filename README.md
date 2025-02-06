@@ -24,3 +24,7 @@ Run the FHIR ingestion container:
 Provide the PostgreSQL container's IP address when prompted:
 
     <input_ip_address_of_postgres_container_emis>
+
+Docker image is publicly available
+
+sellapandi/applications:latest
